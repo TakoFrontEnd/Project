@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
+}
+
+<div id="app" class="chartCard">
+    <div class="chartBox">
+        <form class="row g-3" >
+            <div class="col-auto">
+                <input type="datetime-local" class="form-control" step="60" v-model="startDate" />
+            </div>
+            <div class="col-auto">
+                <input type="datetime-local" class="form-control" step="60" v-model="endDate">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3" v-on:click="searchData">搜尋</button>
+            </div>
+        </form>
+        <canvas ref="myChart" id="myChart"></canvas>
+    </div>
+</div>
