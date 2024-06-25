@@ -69,3 +69,5 @@ C:\Users\klas9\source\repos\Lab0625\Lab0625\obj\Debug\net5.0\Lab0625.dll
 C:\Users\klas9\source\repos\Lab0625\Lab0625\obj\Debug\net5.0\ref\Lab0625.dll
 C:\Users\klas9\source\repos\Lab0625\Lab0625\obj\Debug\net5.0\Lab0625.pdb
 C:\Users\klas9\source\repos\Lab0625\Lab0625\obj\Debug\net5.0\Lab0625.genruntimeconfig.cache
+C:\Users\klas9\source\repos\Lab0625\Lab0625\obj\Debug\net5.0\Razor\Views\LineChart\Index.cshtml.g.cs
+C:\Users\klas9\source\repos\Lab0625\Lab0625\obj\Debug\net5.0\Razor\Views\Gantt\Index.cshtml.g.cs

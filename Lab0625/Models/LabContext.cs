@@ -18,6 +18,7 @@ namespace Lab0625.Models
         }
 
         public virtual DbSet<Example> Example { get; set; }
+        public virtual DbSet<Gantt> Gantt { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -28,6 +29,21 @@ namespace Lab0625.Models
                 entity.Property(e => e.date).HasColumnType("datetime");
 
                 entity.Property(e => e.id).ValueGeneratedOnAdd();
+            });
+
+            modelBuilder.Entity<Gantt>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.Property(e => e.color).HasMaxLength(50);
+
+                entity.Property(e => e.endTime).HasColumnType("datetime");
+
+                entity.Property(e => e.id).ValueGeneratedOnAdd();
+
+                entity.Property(e => e.label).HasMaxLength(50);
+
+                entity.Property(e => e.startTime).HasColumnType("datetime");
             });
 
             OnModelCreatingPartial(modelBuilder);

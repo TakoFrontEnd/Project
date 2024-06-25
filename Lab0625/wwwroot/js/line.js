@@ -118,6 +118,9 @@ createApp({
             fetchData();
             
         });
+
+
+
         return { myChart, startDate, endDate, searchData };
     }
 }).mount('#app');

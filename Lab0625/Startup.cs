@@ -56,7 +56,7 @@ namespace Lab0625
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Gantt}/{action=Index}/{id?}");
             });
         }
     }
