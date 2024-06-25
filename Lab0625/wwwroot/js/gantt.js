@@ -3,6 +3,7 @@
 createApp({
     setup() {
         const myChart = ref(null);
+
         const createChart = (data) => {
             const ctx = myChart.value.getContext('2d');
 
@@ -31,9 +32,33 @@ createApp({
                 },
             };
 
+            let arr = [];
+
+            // 將 Completed 標籤的資料過濾並推入 dataset
+            arr.push({
+                label: 1,
+                data: data.filter(item => item.label == "Completed")
+            });
+
+            // 如果還有其他標籤，可以依照同樣的方法處理
+            // 例如，如果有 "Ongoing" 標籤的資料
+            arr.push({
+                label: 2,
+                data: data.filter(item => item.label == "Ongoing")
+            });
+
+            arr.push({
+                label: 3,
+                data: data.filter(item => item.label == "Paused")
+            });
+
+            console.log('test:', arr);
+
             const config = {
                 type: 'bar',
-                data,
+                data: {
+                    datasets: arr
+                },
                 options: {
                     parsing: {
                         xAxisKey: 'timeRange',
@@ -82,13 +107,7 @@ createApp({
                                     second: 'HH:mm:ss',
                                 }
                             },
-                            ticks: {
-                                autoSkip: true,
-                                autoSkipPadding: 50,
-                                maxRotation: 0,
-                                major: { enabled: true },
-                                align: 'start',
-                            }
+                            
                         },
                         y: {
                             stacked: true,
@@ -98,13 +117,15 @@ createApp({
                 }
             };
 
+            console.log(config.data.datasets[0]);
+
             new Chart(ctx, config);
         };
 
         const fetchData = () => {
             axios.get('/api/Gantt')
                 .then(response => {
-                    console.log(response.data)
+                    console.log(response.data);
                     createChart(response.data);
                 })
                 .catch(error => {

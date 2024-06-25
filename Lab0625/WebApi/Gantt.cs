@@ -24,9 +24,13 @@ namespace Lab0625.WebApi
                 var processedResult = result.Select(item => new ProcessedExample
                 {
                     Id = item.id,
-                    TimeRange = new List<string> { item.startTime.ToString(), item.endTime.ToString() },
+                    TimeRange = new List<string>
+                    {
+                        item.startTime?.ToString("yyyy-mm-dd HH:mm:ss"), 
+                        item.endTime?.ToString("yyyy-mm-dd HH:mm:ss")
+                    },
                     Status = (int)item.status,
-                    Device = (int)item.device,
+                    Device = item.device.ToString(),
                     Color = item.color,
                     Label = item.label
                 }).ToList();
@@ -42,7 +46,7 @@ namespace Lab0625.WebApi
         public int Id { get; set; }
         public List<string> TimeRange { get; set; }
         public int Status { get; set; }
-        public int Device { get; set; }
+        public string Device { get; set; }
         public string Color { get; set; }
         public string Label { get; set; }
     }
